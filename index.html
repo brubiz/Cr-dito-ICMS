@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Fornecedores - ICMS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/4ad4d81b0d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            <i class="fa-solid fa-calculator"></i>
+            Comparador de Custos Reais
+        </h1>
+
+        <p>
+            Compare fornecedores considerando o crédito de ICMS.
+        </p>
+
+    </header>
+
+    <main>
+
+        <section class="botoes">
+
+            <button id="btnAdicionar">
+                <i class="fa-solid fa-plus"></i>
+                Adicionar Fornecedor
+            </button>
+
+            <button id="btnLimpar">
+                <i class="fa-solid fa-trash"></i>
+                Nova Comparação
+            </button>
+
+            <button id="btnPDF">
+                <i class="fa-solid fa-file-pdf"></i>
+                Exportar PDF
+            </button>
+
+        </section>
+
+        <section class="tabela">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Fornecedor</th>
+
+                        <th>Valor Unitário (R$)</th>
+
+                        <th>Quantidade</th>
+
+                        <th>ICMS (%)</th>
+
+                        <th>Total Bruto</th>
+
+                        <th>Crédito ICMS</th>
+
+                        <th>Custo Real</th>
+
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="fornecedores">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section class="resultado">
+
+            <div class="card">
+
+                <h2>🏆 Melhor Fornecedor</h2>
+
+                <h3 id="melhorFornecedor">
+
+                    Nenhum fornecedor informado.
+
+                </h3>
+
+            </div>
+
+            <div class="cardsResumo">
+
+                <div class="info">
+
+                    <span>Menor Custo</span>
+
+                    <strong id="menorCusto">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Economia sobre o 2º</span>
+
+                    <strong id="economiaSegundo">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+                <div class="info">
+
+                    <span>Economia sobre o pior</span>
+
+                    <strong id="economiaPior">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="ranking">
+
+            <h2>
+
+                Ranking dos Fornecedores
+
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Posição</th>
+
+                        <th>Fornecedor</th>
+
+                        <th>Custo Real</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="ranking">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <template id="linhaFornecedor">
+
+        <tr>
+
+            <td>
+
+                <input
+                    type="text"
+                    class="nome"
+                    placeholder="Fornecedor">
+
+            </td>
+
+            <td>
+
+                <input
+                    type="number"
+                    class="valor"
+                    min="0"
+                    step="0.01"
+                    placeholder="0,00">
+
+            </td>
+
+            <td>
+
+                <input
+                    type="number"
+                    class="quantidade"
+                    min="1"
+                    value="1">
+
+            </td>
+
+            <td>
+
+                <input
+                    type="number"
+                    class="icms"
+                    min="0"
+                    max="100"
+                    value="18">
+
+            </td>
+
+            <td class="total">
+
+                R$ 0,00
+
+            </td>
+
+            <td class="credito">
+
+                R$ 0,00
+
+            </td>
+
+            <td class="real">
+
+                R$ 0,00
+
+            </td>
+
+            <td>
+
+                <button class="btnExcluir">
+
+                    <i class="fa-solid fa-trash"></i>
+
+                </button>
+
+            </td>
+
+        </tr>
+
+    </template>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
